@@ -16,9 +16,13 @@ import { MatIconModule } from '@angular/material/icon';
 import {
   Observable,
   Subject,
+<<<<<<< HEAD
   catchError,
   combineLatest,
   of,
+=======
+  combineLatest,
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
   skip,
   switchMap,
   take,
@@ -55,7 +59,10 @@ export default class DashboardComponent implements OnDestroy, AfterViewInit {
     private renderer: Renderer2,
     private dialog: MatDialog
   ) {
+<<<<<<< HEAD
     console.log('dashboard');
+=======
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem(
         'throw_data_initializer',
@@ -91,10 +98,15 @@ export default class DashboardComponent implements OnDestroy, AfterViewInit {
         window.location.href = '/login';
       }
     }
+<<<<<<< HEAD
     console.log('end of constructor');
   }
   ngAfterViewInit(): void {
     console.log('after view init');
+=======
+  }
+  ngAfterViewInit(): void {
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     combineLatest([
       this.store.select(selectGeneralUserProgress),
       this.store.select(selectHasAccess),
@@ -103,7 +115,11 @@ export default class DashboardComponent implements OnDestroy, AfterViewInit {
         skip(1),
         take(1),
         takeUntil(this.ngUnsubscribe),
+<<<<<<< HEAD
         switchMap(([progress, hasAccess]) => {
+=======
+        switchMap(([progress, hasAccess]): any => {
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
           if (hasAccess === false) {
             openModal(
               this.dialog,
@@ -116,15 +132,20 @@ export default class DashboardComponent implements OnDestroy, AfterViewInit {
                 window.location.href = '/login';
               }
             );
+<<<<<<< HEAD
             // No necesitamos devolver un observable aquí, ya que solo se realiza una acción
             return [];
           } else {
             console.log('progress: ', progress);
+=======
+          } else {
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
             if (progress) {
               const percentage = this.calculateProgress(progress);
               this.setUserImage(percentage);
               this.createProgressBar(percentage);
             }
+<<<<<<< HEAD
             // No necesitamos devolver un observable aquí, ya que solo se realiza una acción
             return [];
           }
@@ -138,6 +159,13 @@ export default class DashboardComponent implements OnDestroy, AfterViewInit {
       .subscribe(() => {
         console.log('end of after view init');
       });
+=======
+          }
+          return {};
+        })
+      )
+      .subscribe();
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
   }
 
   ngOnDestroy(): void {
@@ -165,7 +193,11 @@ export default class DashboardComponent implements OnDestroy, AfterViewInit {
     let completedLevels = 0;
     progress.forEach((activity) => {
       totalLevels += activity.total_levels;
+<<<<<<< HEAD
       completedLevels += Number(activity.completed_levels);
+=======
+      completedLevels += activity.completed_levels;
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     });
     const rawPercentage = (completedLevels / totalLevels) * 100;
     const roundedPercentage = Number(rawPercentage.toFixed(2));
@@ -198,14 +230,20 @@ export default class DashboardComponent implements OnDestroy, AfterViewInit {
     );
   }
   setUserImage(userPercentageProgress: number) {
+<<<<<<< HEAD
     console.log('percentage: ', userPercentageProgress);
+=======
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     if (userPercentageProgress < 0 || userPercentageProgress > 100) {
       return;
     }
 
     const tier = Math.floor(userPercentageProgress / 5) + 1;
     const tierName = this.getTierName(tier);
+<<<<<<< HEAD
     console.log('tier: ', tierName);
+=======
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     this.userImage = `../../../assets/badges/badge${tierName}.png`;
   }
 }

@@ -18,6 +18,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+<<<<<<< HEAD
+=======
+import { updateUserResponse } from '../../../user/actions/user.actions';
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
 
 @Component({
   selector: 'app-login',
@@ -38,6 +42,10 @@ export default class LoginComponent implements OnDestroy {
 
   constructor(
     private router: Router,
+<<<<<<< HEAD
+=======
+    private activatedRoute: ActivatedRoute,
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     private readonly store: Store,
     private fb: FormBuilder
   ) {
@@ -74,6 +82,7 @@ export default class LoginComponent implements OnDestroy {
         });
     }
     this.invalidMessage$ = this.store.select(selectAuthToken).pipe(
+<<<<<<< HEAD
       map((token) =>
         token === 'Invalid Password'
           ? token
@@ -81,6 +90,9 @@ export default class LoginComponent implements OnDestroy {
           ? ''
           : 'Invalid Credentials'
       ),
+=======
+      map((token) => (token === 'Invalid Password' ? token : '')),
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
       takeUntil(this.ngUnsubscribe)
     );
   }

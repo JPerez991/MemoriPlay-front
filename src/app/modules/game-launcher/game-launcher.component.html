@@ -9,6 +9,7 @@
   <div
     class="left-20 top-[20%] border-2 border-pink-600 w-[250px] h-fit rounded-lg p-4 flex flex-col justify-start"
   >
+<<<<<<< HEAD
     @if (activityName === 'LABERINTO DE ZEN') {
     <h1 class="text-slate-300 text-center">{{ activityName }}</h1>
     <hr class="my-2" />
@@ -23,12 +24,16 @@
     <h1 class="text-slate-300">Puntuación actual: {{ points }}</h1>
     } @else {
     <h1 class="text-slate-300 text-center">{{ activityName }}</h1>
+=======
+    <h1 class="text-slate-300 text-center">MEMORAMA</h1>
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     <hr class="my-2" />
     <h1 class="text-slate-300">Objetivo: {{ targetMoves }} movs</h1>
     <h1 class="text-slate-300">Objetivo: {{ targetPoints }} puntos</h1>
 
     <h1 class="text-slate-300">Total actuales: {{ totalMoves }} movs</h1>
     <h1 class="text-slate-300">Puntuación: {{ points }}</h1>
+<<<<<<< HEAD
     }
   </div>
   <div
@@ -45,11 +50,21 @@
       (puntuacionEmitted)="handlePuntuacion($event)"
     ></app-color-memory>
     } @else {
+=======
+  </div>
+  <div
+    #container
+    class="rounded-lg shadow-inner min-h-[570px] h-[570px] min-w-[600px] w-[600px] bg-slate-700 p-5 overflow-auto"
+  >
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     <app-memory (emitMoves)="receiveMoves($event)">
       <ng-template #customTemplate>
         <!-- ng-container -->
       </ng-template>
     </app-memory>
+<<<<<<< HEAD
     }
+=======
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
   </div>
 </div>

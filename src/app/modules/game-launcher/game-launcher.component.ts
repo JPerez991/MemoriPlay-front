@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MemoryComponent } from '../games/memory/memory.component';
+<<<<<<< HEAD
 import {
   getDataFromLocalStorage,
   getDataFromSessionStorage,
@@ -16,12 +17,17 @@ import { LaberintoZenComponent } from '../games/laberinto-zen/laberinto-zen.comp
 import { Store } from '@ngrx/store';
 import { startLoading, stopLoading } from '../auth/auth-state/auth.actions';
 import { ColorMemoryComponent } from '../games/color-memory/color-memory.component';
+=======
+import { getDataFromLocalStorage } from '../../utils/data-from-storage';
+import { SharedModule } from '../../shared/shared.module';
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
 
 @Component({
   selector: 'app-game-launcher',
   standalone: true,
   templateUrl: './game-launcher.component.html',
   styleUrl: './game-launcher.component.css',
+<<<<<<< HEAD
   imports: [
     CommonModule,
     MemoryComponent,
@@ -29,6 +35,9 @@ import { ColorMemoryComponent } from '../games/color-memory/color-memory.compone
     LaberintoZenComponent,
     ColorMemoryComponent,
   ],
+=======
+  imports: [CommonModule, MemoryComponent, SharedModule],
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
 })
 export default class GameLauncherComponent implements AfterViewInit, OnInit {
   @ViewChild(MemoryComponent) memoryComponent: MemoryComponent | undefined;
@@ -39,6 +48,7 @@ export default class GameLauncherComponent implements AfterViewInit, OnInit {
   targetMoves = 0;
   points = '0';
   targetPoints: number = 500;
+<<<<<<< HEAD
   armonyLevel: number = 0;
   constructor(private renderer: Renderer2, private readonly store: Store) {}
 
@@ -56,6 +66,19 @@ export default class GameLauncherComponent implements AfterViewInit, OnInit {
     this.activityName = dataSession.name;
 
     this.points = '2,500';
+=======
+
+  constructor(private renderer: Renderer2) {}
+
+  ngOnInit(): void {
+    const data = getDataFromLocalStorage();
+    if (!data?.token) {
+      if(typeof window !== 'undefined'){
+        window.location.href = '/login';
+      }
+
+    }
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
   }
 
   ngAfterViewInit(): void {}
@@ -82,8 +105,12 @@ export default class GameLauncherComponent implements AfterViewInit, OnInit {
         break;
       case 'ARMONÍA DEL COLOR':
         break;
+<<<<<<< HEAD
       case 'LABERINTO DE ZEN':
         break;
+=======
+
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
       default:
         break;
     }
@@ -92,8 +119,11 @@ export default class GameLauncherComponent implements AfterViewInit, OnInit {
   goToActivity() {
     window.location.href = '/activity';
   }
+<<<<<<< HEAD
 
   handlePuntuacion(puntuation: number) {
     this.points = puntuation.toLocaleString();
   }
+=======
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
 }

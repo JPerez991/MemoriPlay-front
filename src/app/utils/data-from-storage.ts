@@ -18,6 +18,7 @@ export const getDataFromLocalStorage = () => {
     return {};
   }
 };
+<<<<<<< HEAD
 
 export const getDataFromSessionStorage = (key: string) => {
   return JSON.parse(sessionStorage.getItem(key)!);
@@ -34,3 +35,5 @@ export const getActualDate = () => {
 
   return fechaFormateada;
 };
+=======
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02

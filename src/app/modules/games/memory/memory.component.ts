@@ -16,10 +16,14 @@ import { Store } from '@ngrx/store';
 import { updateUserProgress } from '../../user/actions/user.actions';
 import { UserProgress } from '../../../models/userprogress';
 import { selectUserProgressUpdate } from '../../user/selectors/user.selectors';
+<<<<<<< HEAD
 import {
   getActualDate,
   getDataFromLocalStorage,
 } from '../../../utils/data-from-storage';
+=======
+import { getDataFromLocalStorage } from '../../../utils/data-from-storage';
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
 
 @Component({
   selector: 'app-memory',
@@ -49,7 +53,12 @@ export class MemoryComponent implements OnInit {
     private el: ElementRef,
     private dialog: MatDialog,
     private readonly store: Store
+<<<<<<< HEAD
   ) {}
+=======
+  ) {
+  }
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
 
   ngOnInit(): void {
     if (typeof sessionStorage !== 'undefined') {
@@ -158,7 +167,11 @@ export class MemoryComponent implements OnInit {
                             id: this.gameData.next_level_register_id,
                             total_points: totalPuntuation,
                             completed: true,
+<<<<<<< HEAD
                             last_date: getActualDate(),
+=======
+                            last_date: this.getActualDate(),
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
                           };
                           this.store.dispatch(
                             updateUserProgress({ progress, token })
@@ -236,6 +249,21 @@ export class MemoryComponent implements OnInit {
     return { width: cardWidth, height: cardHeight };
   }
 
+<<<<<<< HEAD
+=======
+  getActualDate(): string {
+    const fechaActual = new Date();
+
+    const año = fechaActual.getFullYear();
+    const mes = (fechaActual.getMonth() + 1).toString().padStart(2, '0'); // Se suma 1 porque los meses van de 0 a 11
+    const dia = fechaActual.getDate().toString().padStart(2, '0');
+
+    const fechaFormateada = `${año}-${mes}-${dia}`;
+
+    return fechaFormateada;
+  }
+
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
   calculateTotalCards(activityLevel: number) {
     return activityLevel * 2 + 2;
   }

@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import LoginComponent from './modules/auth/login/login-component/login.component';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectIsLoading } from './modules/auth/auth-state/auth.selectors';
@@ -22,6 +23,15 @@ import { AmToastComponent } from './shared/components/am-toast/am-toast.componen
     FormsModule,
     AmToastComponent,
   ],
+=======
+
+@Component({
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [CommonModule, RouterOutlet, SharedModule, LoginComponent, FormsModule,]
+>>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
 })
 export class AppComponent implements OnInit {
   title = 'app-web-am';
