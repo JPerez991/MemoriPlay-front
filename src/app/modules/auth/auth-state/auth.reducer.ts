@@ -22,11 +22,7 @@ export const authReducer = createReducer(
   on(loginResponse, (state, { result }) => ({
     ...state,
     token: result.token ?? result.msg,
-<<<<<<< HEAD
     isAuthenticated: result.data ? true : false,
-=======
-    isAuthenticated: result.msg ? false : true,
->>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     userLoggedIn: result.data ?? null,
   })),
   on(startLoading, (state) => ({ ...state, isLoading: true })),

@@ -57,16 +57,9 @@ export default class ActivitiesComponent implements OnInit, AfterViewInit {
         getGeneralUserProgress({ id: userData.id, token: this.data.token })
       );
     } else {
-<<<<<<< HEAD
       if (typeof window !== 'undefined') {
         window.location.href = '/login';
       }
-=======
-      if(typeof window !== 'undefined'){
-        window.location.href = '/login';
-      }
-
->>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     }
   }
 
@@ -230,7 +223,6 @@ export default class ActivitiesComponent implements OnInit, AfterViewInit {
               window.location.href = '/activity/game-launcher';
             }
           }
-<<<<<<< HEAD
         } else if (activity.name === 'LABERINTO DE ZEN') {
           if (progress === 100) {
             openModal(
@@ -313,8 +305,6 @@ export default class ActivitiesComponent implements OnInit, AfterViewInit {
               window.location.href = '/activity/game-launcher';
             }
           }
-=======
->>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
         } else {
           openModal(
             this.dialog,

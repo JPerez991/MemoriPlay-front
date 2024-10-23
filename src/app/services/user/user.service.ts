@@ -11,7 +11,6 @@ import { UserProgress } from '../../models/userprogress';
 export class UserService {
   constructor(private http: HttpClient) {}
 
-<<<<<<< HEAD
   getOptions(token: string) {
     return {
       headers: new HttpHeaders({
@@ -23,8 +22,6 @@ export class UserService {
     };
   }
 
-=======
->>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
   update(
     user: User,
     newPassword: string | null,
@@ -32,17 +29,7 @@ export class UserService {
   ): Observable<any> {
     const body = { user, newPassword };
 
-<<<<<<< HEAD
     const options = this.getOptions(token);
-=======
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:4200',
-        Authorization: `Bearer ${token}`,
-      }),
-    };
->>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
 
     return this.http.post(`${environment.users}/update`, body, options).pipe(
       map((response: any) => response),
@@ -54,17 +41,7 @@ export class UserService {
 
   getProgress(id: number, token: string): Observable<any> {
     const body = { id };
-<<<<<<< HEAD
     const options = this.getOptions(token);
-=======
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:4200',
-        Authorization: `Bearer ${token}`,
-      }),
-    };
->>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
     return this.http
       .post(`${environment.acitivity}/progress/general`, body, options)
       .pipe(
@@ -78,17 +55,7 @@ export class UserService {
   getActivities(id: number, token: string): Observable<any> {
     const body = { id };
 
-<<<<<<< HEAD
     const options = this.getOptions(token);
-=======
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:4200',
-        Authorization: `Bearer ${token}`,
-      }),
-    };
->>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
 
     return this.http
       .post(`${environment.acitivity}/get-by-user`, body, options)
@@ -103,7 +70,6 @@ export class UserService {
   updateProgress(progress: UserProgress, token: string): Observable<any> {
     const body = progress;
 
-<<<<<<< HEAD
     const options = this.getOptions(token);
     return this.http
       .post(`${environment.acitivity}/progress/update`, body, options)
@@ -124,37 +90,5 @@ export class UserService {
         throw error;
       })
     );
-=======
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:4200',
-        Authorization: `Bearer ${token}`,
-      }),
-    };
-    return this.http.post(`${environment.acitivity}/progress/update`, body, options).pipe(
-      map((response: any) => response),
-        catchError((error: any) => {
-          throw error;
-        })
-    )
-  }
-
-  getActivityById(id: number, token: string): Observable<any>{
-    const body = {id}
-    const options = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': 'http://localhost:4200',
-        Authorization: `Bearer ${token}`,
-      }),
-    };
-    return this.http.post(`${environment.acitivity}/get`, body, options).pipe(
-      map((response: any) => response),
-        catchError((error: any) => {
-          throw error;
-        })
-    )
->>>>>>> 6e196c37a875af5c32bcf97bb1aa569203ca8f02
   }
 }
